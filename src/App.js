@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import logo from "./logo.svg";
+import TopButtons from "./components/button/TopButtons";
 
 function App() {
   const [state, setState] = useState({ topic: "" });
@@ -15,59 +15,27 @@ function App() {
     }
   }, []);
   return (
-    <Container>
-      <AppHeader>
-        <AppLogo src={logo} alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <AppLink
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Your React {state.topic} Template
-        </AppLink>
-      </AppHeader>
-    </Container>
+    <Header>
+      <TopButtons />
+    </Header>
   );
 }
 
-const Container = styled.div`
-  text-align: center;
-`;
-
-const AppLogo = styled.img`
-  height: 40vmin;
-  pointer-events: none;
-
-  @media (prefers-reduced-motion: no-preference) {
-    animation: App-logo-spin infinite 20s linear;
-  }
-`;
-
-const AppHeader = styled.header`
-  background-color: #282c34;
-  min-height: 100vh;
+const Header = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-`;
-
-const AppLink = styled.a`
-  color: #61dafb;
-
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 768px;
+  margin-top: 1rem;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  padding-left: 8rem;
+  padding-right: 8rem;
+  background-image: linear-gradient(to bottom right, #0097a7, #1976d2);
+  height: fit-content;
+  box-shadow: 0 20px 25px -5px #bdbdbd, 0 8px 10px -6px #bdbdbd;
+  border-radius: 15px;
 `;
 
 export default App;
