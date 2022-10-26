@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-function TopButtons({ setQuery }) {
+function CityButtons({ setQuery }) {
   const cities = [
     {
       id: 1,
@@ -45,4 +45,4 @@ const Button = styled.button`
   border: unset;
 `;
 
-export default TopButtons;
+export default CityButtons;

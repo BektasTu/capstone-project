@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import TopButtons from "./components/button/TopButtons";
+import CityButtons from "./components/button/CityButtons";
 
 function App() {
   const [state, setState] = useState({ topic: "" });
@@ -16,7 +16,7 @@ function App() {
   }, []);
   return (
     <Header>
-      <TopButtons />
+      <CityButtons />
     </Header>
   );
 }

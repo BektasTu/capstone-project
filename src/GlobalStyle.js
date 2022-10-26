@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
   }
   * {
     box-sizing: border-box;
+    font-size: calc(15px + 0.390625vw);
   }
 
   body {
