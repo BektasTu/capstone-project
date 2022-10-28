@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import CityButtons from "./components/button/CityButtons";
 import SearchBar from "./components/searchbar/SearchBar";
+import TimeAndLocation from "./components/weather-card/TimeAndLocation";
 
 function App() {
   const [state, setState] = useState({ topic: "" });
@@ -19,6 +20,8 @@ function App() {
     <Content>
       <CityButtons />
       <SearchBar />
+
+      <TimeAndLocation />
     </Content>
   );
 }
