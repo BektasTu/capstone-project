@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import CityButtons from "./components/button/CityButtons";
 import SearchBar from "./components/searchbar/SearchBar";
+import TemperatureAndDetails from "./components/weather-card/TemperatureAndDetails";
 import TimeAndLocation from "./components/weather-card/TimeAndLocation";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <SearchBar />
 
       <TimeAndLocation />
+      <TemperatureAndDetails />
     </Content>
   );
 }
