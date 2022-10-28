@@ -6,8 +6,8 @@ function SearchBar() {
   return (
     <>
       <Search type="text" placeholder="search for a city..." />
-      <UilSearch size={25} />
-      <UilLocationPoint size={25} />
+      <SearchButton size={25} />
+      <LocationButton size={25} />
     </>
   );
 }
@@ -24,6 +24,16 @@ const Search = styled.input`
   &:focus {
     outline: none;
   }
+`;
+const SearchButton = styled(UilSearch)`
+  color: white;
+  cursor: pointer;
+`;
+
+const LocationButton = styled(UilLocationPoint)`
+  color: white;
+  cursor: pointer;
+  margin-left: 0.8rem;
 `;
 
 export default SearchBar;
