@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import NotoSans from "./fonts/noto-sans-v27-latin-regular.woff";
 import NotoSans2 from "./fonts/noto-sans-v27-latin-regular.woff2";
+import px2vw from "./utils/px2vw";
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -9,9 +10,21 @@ const GlobalStyle = createGlobalStyle`
         url(${NotoSans}) format('woff');
   }
   * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-size: calc(15px + 0.390625vw);
   }
+  :root {
+      font-size: ${px2vw(24)};
+
+      @media (min-width: 768px) {
+        font-size: ${px2vw(18)};
+      }
+
+      @media (min-width: 1024px) {
+        font-size: ${px2vw(16)};
+      }
+    }
 
   body {
     margin: 0;

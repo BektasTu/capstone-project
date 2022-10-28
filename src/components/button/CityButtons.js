@@ -17,7 +17,7 @@ function CityButtons({ setQuery }) {
     },
     {
       id: 4,
-      title: "New York",
+      title: "Miami",
     },
     {
       id: 5,
@@ -26,21 +26,25 @@ function CityButtons({ setQuery }) {
   ];
 
   return (
-    <>
+    <ButtonPosition>
       {cities.map((city) => (
         <Button key={city.id} onClick={() => setQuery({ q: city.title })}>
           {city.title}
         </Button>
       ))}
-    </>
+    </ButtonPosition>
   );
 }
 
-const Button = styled.button`
+const ButtonPosition = styled.div`
+  position: relative;
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
+`;
+
+const Button = styled.button`
   color: white;
+  font-size: medium;
   background-color: transparent;
   border: unset;
 `;
