@@ -5,6 +5,7 @@ import SearchBar from "./components/searchbar/SearchBar";
 import Forecast from "./components/weather-card/Forecast";
 import TemperatureAndDetails from "./components/weather-card/TemperatureAndDetails";
 import TimeAndLocation from "./components/weather-card/TimeAndLocation";
+import Navbar from "./components/navbar/Navbar";
 
 function App() {
   const [state, setState] = useState({ topic: "" });
@@ -28,15 +29,16 @@ function App() {
 
       <Forecast title="HOURLY FORECAST" />
       <Forecast title="DAILY FORECAST" />
+
+      <Navbar />
     </Content>
   );
 }
 
 const Content = styled.main`
   width: 100vw;
-  padding: 1rem;
-  background-image: linear-gradient(to bottom right, #0097a7, #1976d2);
   height: 100vh;
+  background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
 `;
 
 export default App;

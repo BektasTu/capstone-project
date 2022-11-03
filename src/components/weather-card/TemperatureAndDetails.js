@@ -1,5 +1,4 @@
 import {
-  UilClouds,
   UilTemperature,
   UilTear,
   UilWind,
@@ -8,6 +7,7 @@ import {
 } from "@iconscout/react-unicons";
 import React from "react";
 import styled from "styled-components";
+import { BsFillCloudsFill } from "react-icons/bs";
 
 function TemperatureAndDetails() {
   return (
@@ -76,8 +76,8 @@ const Container = styled.div`
   color: white;
 `;
 
-const WeatherIcon = styled(UilClouds)`
-  width: 5rem;
+const WeatherIcon = styled(BsFillCloudsFill)`
+  width: 7rem;
 `;
 
 const Degree = styled.p`
