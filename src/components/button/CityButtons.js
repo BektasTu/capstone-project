@@ -40,13 +40,16 @@ const ButtonPosition = styled.div`
   position: relative;
   display: flex;
   justify-content: space-evenly;
+  background-color: #3b4a5c;
+  padding-bottom: 0.1rem;
 `;
 
 const Button = styled.button`
   color: white;
   font-size: medium;
-  background-color: transparent;
+  background-color: inherit;
   border: unset;
+  text-shadow: 1px 1px 2px black;
 `;
 
 export default CityButtons;

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { UilClouds } from "@iconscout/react-unicons";
+import { BsFillCloudsFill } from "react-icons/bs";
 
 function Forecast({ title }) {
   return (
@@ -31,9 +31,9 @@ function Forecast({ title }) {
           <DetailsDegree>14˚</DetailsDegree>
         </Details>
         <Details>
-          <DetailsHour>15:00</DetailsHour>
+          <DetailsHour>19:00</DetailsHour>
           <DetailsIcon />
-          <DetailsDegree>17˚</DetailsDegree>
+          <DetailsDegree>13˚</DetailsDegree>
         </Details>
       </HourlyContent>
     </>
@@ -77,7 +77,7 @@ const DetailsHour = styled.p`
   line-height: 1.25rem;
 `;
 
-const DetailsIcon = styled(UilClouds)`
+const DetailsIcon = styled(BsFillCloudsFill)`
   margin: 0.25rem auto;
   width: 3rem;
 `;
