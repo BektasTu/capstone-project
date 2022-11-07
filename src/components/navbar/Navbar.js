@@ -1,74 +1,55 @@
 import React from "react";
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
+
+const links = [
+  { name: "home", path: "/" },
+  { name: "planer", path: "/planer" },
+  { name: "add", path: "/add" },
+];
 
 function Navbar() {
   return (
-    <>
-      <NavbarPosition>
-        <Home>Home</Home>
-        <Planer>Planer</Planer>
-        <ADD>New Activity</ADD>
-      </NavbarPosition>
-    </>
+    <NavbarList>
+      {links.map((link, index) => (
+        <NavLink key={index} to={link.path} exact activeClassName="current">
+          <li>{link.name}</li>
+        </NavLink>
+      ))}
+    </NavbarList>
   );
 }
-const NavbarPosition = styled.div`
+const NavbarList = styled.ul`
   position: fixed;
   bottom: 0;
-  left: 0;
   width: 100%;
   display: flex;
-  border-radius: 5px;
-`;
-const Home = styled.button`
-  font-size: 0.6em;
-  padding: 1.5em 0.5em;
-  width: 100%;
-  height: 100%;
-  background-image: radial-gradient(73% 147%, #eadfdf 59%, #ece2df 100%),
-    radial-gradient(
-      91% 146%,
-      rgba(255, 255, 255, 0.5) 47%,
-      rgba(0, 0, 0, 0.5) 100%
-    );
-  background-blend-mode: screen;
-  &:hover {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  background: #3b4a5c;
+  justify-content: space-around;
+  border-top: solid 0.5px white;
+  a {
+    text-decoration: none;
   }
-`;
-const Planer = styled.button`
-  font-size: 0.6em;
-  padding: 1.5em 0.5em;
-  width: 100%;
-  height: 100%;
-  background-image: radial-gradient(73% 147%, #eadfdf 59%, #ece2df 100%),
-    radial-gradient(
-      91% 146%,
-      rgba(255, 255, 255, 0.5) 47%,
-      rgba(0, 0, 0, 0.5) 100%
-    );
-  background-blend-mode: screen;
-  &:hover {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
+  li {
+    color: #f8f8ff;
+    font-size: 1.8rem;
+    position: relative;
+    list-style: none;
+    text-transform: uppercase;
+    font-family: verdana;
+    text-shadow: -1px -1px 1px #efede3, 0px 1px 0 #2e2e2e, 0px 2px 0 #2c2c2c,
+      0px 3px 0 #2a2a2a, 0px 4px 0 #282828, 0px 5px 0 #262626, 0px 6px 0 #242424,
+      0px 7px 0 #222, 0px 8px 0 #202020, 0px 9px 0 #1e1e1e, 0px 10px 0 #1c1c1c,
+      0px 11px 0 #1a1a1a, 0px 12px 0 #181818, 0px 13px 0 #161616,
+      0px 14px 0 #141414, 0px 15px 0 #121212, 2px 20px 5px rgba(0, 0, 0, 0.9),
+      5px 23px 5px rgba(0, 0, 0, 0.3), 8px 27px 8px rgba(0, 0, 0, 0.5),
+      8px 28px 35px rgba(0, 0, 0, 0.9);
   }
-`;
-const ADD = styled.button`
-  font-size: 0.6em;
-  padding: 1.5em 0.5em;
-  width: 100%;
-  height: 100%;
-  background-image: radial-gradient(73% 147%, #eadfdf 59%, #ece2df 100%),
-    radial-gradient(
-      91% 146%,
-      rgba(255, 255, 255, 0.5) 47%,
-      rgba(0, 0, 0, 0.5) 100%
-    );
-  background-blend-mode: screen;
-  &:hover {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
+  .current {
+    li {
+    }
   }
 `;
 export default Navbar;

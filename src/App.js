@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
+import Home from "./pages/Home.js";
+import Planer from "./pages/Planer.js";
+import Add from "./pages/Add.js";
 import styled from "styled-components";
-import CityButtons from "./components/button/CityButtons";
-import SearchBar from "./components/searchbar/SearchBar";
-import Forecast from "./components/weather-card/Forecast";
-import TemperatureAndDetails from "./components/weather-card/TemperatureAndDetails";
-import TimeAndLocation from "./components/weather-card/TimeAndLocation";
 import Navbar from "./components/navbar/Navbar";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [state, setState] = useState({ topic: "" });
@@ -21,24 +20,16 @@ function App() {
   }, []);
   return (
     <Content>
-      <CityButtons />
-      <SearchBar />
-
-      <TimeAndLocation />
-      <TemperatureAndDetails />
-
-      <Forecast title="HOURLY FORECAST" />
-      <Forecast title="DAILY FORECAST" />
-
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/planer" element={<Planer />} />
+        <Route path="/add" element={<Add />} />
+      </Routes>
       <Navbar />
     </Content>
   );
 }
 
-const Content = styled.main`
-  width: 100vw;
-  height: 100vh;
-  background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
-`;
+const Content = styled.main``;
 
 export default App;
