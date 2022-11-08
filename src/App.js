@@ -5,19 +5,16 @@ import Add from "./pages/Add.js";
 import styled from "styled-components";
 import Navbar from "./components/navbar/Navbar";
 import { Route, Routes } from "react-router-dom";
+import getFormattedWeatherData from "./services/weatherService.js";
 
 function App() {
-  const [state, setState] = useState({ topic: "" });
+  const fetchWeather = async () => {
+    const data = await getFormattedWeatherData({ q: "london" });
+    console.log(data);
+  };
 
-  useEffect(() => {
-    getData();
+  fetchWeather();
 
-    async function getData() {
-      const response = await fetch("/api/data-for-react");
-      const data = await response.json();
-      setState(data);
-    }
-  }, []);
   return (
     <Content>
       <Routes>
