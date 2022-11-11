@@ -1,14 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import { formatToLocalTime } from "../../services/weatherService";
 
-function TimeAndLocation() {
+function TimeAndLocation({ weather: { dt, timezone, name, country } }) {
   return (
     <>
       <TimeAndDatePosition>
-        <DateAndTime>Date and Time</DateAndTime>
+        <DateAndTime>{formatToLocalTime(dt, timezone)}</DateAndTime>
       </TimeAndDatePosition>
       <LocationPosition>
-        <Location>City</Location>
+        <Location>{`${name}, ${country}`}</Location>
       </LocationPosition>
     </>
   );

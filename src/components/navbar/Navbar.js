@@ -4,15 +4,14 @@ import { NavLink } from "react-router-dom";
 
 const links = [
   { name: "home", path: "/" },
-  { name: "planer", path: "/planer" },
-  { name: "add", path: "/add" },
+  { name: "activities", path: "/activities" },
 ];
 
 function Navbar() {
   return (
     <NavbarList>
       {links.map((link, index) => (
-        <NavLink key={index} to={link.path} exact activeClassName="current">
+        <NavLink key={index} to={link.path}>
           <li>{link.name}</li>
         </NavLink>
       ))}
@@ -45,11 +44,6 @@ const NavbarList = styled.ul`
       0px 14px 0 #141414, 0px 15px 0 #121212, 2px 20px 5px rgba(0, 0, 0, 0.9),
       5px 23px 5px rgba(0, 0, 0, 0.3), 8px 27px 8px rgba(0, 0, 0, 0.5),
       8px 28px 35px rgba(0, 0, 0, 0.9);
-  }
-
-  .current {
-    li {
-    }
   }
 `;
 export default Navbar;
