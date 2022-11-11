@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { BsFillCloudsFill } from "react-icons/bs";
+import { iconUrlFromCode } from "../../services/weatherService";
 
-function Forecast({ title }) {
+function Forecast({ title, items }) {
   return (
     <>
       <ForecastPosition>
@@ -10,31 +10,13 @@ function Forecast({ title }) {
       </ForecastPosition>
       <Break />
       <HourlyContent>
-        <Details>
-          <DetailsHour>15:00</DetailsHour>
-          <DetailsIcon />
-          <DetailsDegree>17˚</DetailsDegree>
-        </Details>
-        <Details>
-          <DetailsHour>16:00</DetailsHour>
-          <DetailsIcon />
-          <DetailsDegree>17˚</DetailsDegree>
-        </Details>
-        <Details>
-          <DetailsHour>17:00</DetailsHour>
-          <DetailsIcon />
-          <DetailsDegree>15˚</DetailsDegree>
-        </Details>
-        <Details>
-          <DetailsHour>18:00</DetailsHour>
-          <DetailsIcon />
-          <DetailsDegree>14˚</DetailsDegree>
-        </Details>
-        <Details>
-          <DetailsHour>19:00</DetailsHour>
-          <DetailsIcon />
-          <DetailsDegree>13˚</DetailsDegree>
-        </Details>
+        {items.map((item, index) => (
+          <Details key={index}>
+            <DetailsHour>{item.title}</DetailsHour>
+            <DetailsIcon />
+            <DetailsDegree>{`${item.temp.toFixed()}˚`}</DetailsDegree>
+          </Details>
+        ))}
       </HourlyContent>
     </>
   );
@@ -77,7 +59,7 @@ const DetailsHour = styled.p`
   line-height: 1.25rem;
 `;
 
-const DetailsIcon = styled(BsFillCloudsFill)`
+const DetailsIcon = styled(iconUrlFromCode)`
   margin: 0.25rem auto;
   width: 3rem;
 `;

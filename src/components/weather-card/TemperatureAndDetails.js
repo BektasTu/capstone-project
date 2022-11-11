@@ -7,30 +7,47 @@ import {
 } from "@iconscout/react-unicons";
 import React from "react";
 import styled from "styled-components";
-import { BsFillCloudsFill } from "react-icons/bs";
+import {
+  formatToLocalTime,
+  iconUrlFromCode,
+} from "../../services/weatherService";
 
-function TemperatureAndDetails() {
+function TemperatureAndDetails({
+  weather: {
+    details,
+    icon,
+    temp,
+    temp_min,
+    temp_max,
+    sunrise,
+    sunset,
+    speed,
+    humidity,
+    feels_like,
+    timezone,
+  },
+}) {
   return (
     <>
-      <WeatherDescription>Cloudy</WeatherDescription>
+      <WeatherDescription>{details}</WeatherDescription>
       <Container>
         <WeatherIcon size={90} />
-        <Degree>18˚C</Degree>
+        <Degree>{`${temp.toFixed()}˚`}</Degree>
         <WeatherDetails>
           <DetailsSide>
             <TemperatureIcon size={18} />
-            <p>Real Feal:</p>
-            <RealFeal>17˚C</RealFeal>
+            Real Feal:
+            <RealFeal>{`${feels_like.toFixed()}˚`}</RealFeal>
           </DetailsSide>
           <DetailsSide>
             <HumidityIcon size={18} />
-            <p>Humidity:</p>
-            <RealFeal>69%</RealFeal>
+            Humidity:
+            <RealFeal>{`${humidity.toFixed()}%`}</RealFeal>
           </DetailsSide>
           <DetailsSide>
             <WindIcon size={18} />
-            <p>Wind:</p>
-            <RealFeal>10 km/h</RealFeal>
+            Wind:
+            <RealFeal>{`${speed.toFixed()}km/h`}</RealFeal>
           </DetailsSide>
         </WeatherDetails>
       </Container>
@@ -38,19 +55,25 @@ function TemperatureAndDetails() {
       <DetailsBottom>
         <UilSun />
         <TextDetails>
-          Rise: <NumberDetails>06:45 |</NumberDetails>
+          Rise:{" "}
+          <NumberDetails>
+            {formatToLocalTime(sunrise, timezone, "hh:mm a")}
+          </NumberDetails>
         </TextDetails>
         <UilSunset />
         <TextDetails>
-          Set: <NumberDetails>17:45 |</NumberDetails>
+          Set:{" "}
+          <NumberDetails>
+            {formatToLocalTime(sunset, timezone, "hh:mm a")}
+          </NumberDetails>
         </TextDetails>
         <UilSun />
         <TextDetails>
-          High: <NumberDetails>20˚ |</NumberDetails>
+          High: <NumberDetails>{`${temp_max.toFixed()}˚`}</NumberDetails>
         </TextDetails>
         <UilSun />
         <TextDetails>
-          Low: <NumberDetails>12˚</NumberDetails>
+          Low: <NumberDetails>{`${temp_min.toFixed()}˚`}</NumberDetails>
         </TextDetails>
       </DetailsBottom>
     </>
@@ -76,7 +99,7 @@ const Container = styled.div`
   color: white;
 `;
 
-const WeatherIcon = styled(BsFillCloudsFill)`
+const WeatherIcon = styled(iconUrlFromCode)`
   width: 7rem;
 `;
 
