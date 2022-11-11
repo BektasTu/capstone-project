@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import ActivityCards from "./ActivityCards";
 import AddActivity from "./AddActivity";
 import DeleteActivity from "./DeleteActivity";
@@ -49,16 +50,16 @@ export default function Card() {
   };
 
   return (
-    <div className="App">
-      <div className="Input-Components">
+    <>
+      <InputComponent>
         <AddActivity
           add={AddActivityHandler}
           id={activities.activityList[activities.activityList.length - 1].id}
         />
         <DeleteActivity delete={DeleteActivityHandler} />
-      </div>
+      </InputComponent>
 
-      <div className="All-Cards">
+      <AllCards>
         {activities.activityList.map((element) => (
           <ActivityCards
             key={element.id}
@@ -68,7 +69,20 @@ export default function Card() {
             time={element.time}
           />
         ))}
-      </div>
-    </div>
+      </AllCards>
+    </>
   );
 }
+
+const InputComponent = styled.div`
+  background-color: rgba(0, 0, 0, 0.404);
+  padding: 20px;
+  margin-bottom: 20px;
+`;
+
+const AllCards = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;

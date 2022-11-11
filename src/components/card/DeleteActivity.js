@@ -9,11 +9,10 @@ const DeleteActivity = (props) => {
         type="text"
         name=""
         id=""
-        placeholder="Name"
+        placeholder="Name ..."
         onChange={(event) => setActivity(event.target.value)}
       />
       <FunctionButtons
-        type="button"
         value="Delete Activity"
         onClick={() => props.delete(activity)}
       />
@@ -32,10 +31,10 @@ const Inputs = styled.input`
 
 const FunctionButtons = styled.button`
   border: none;
-  padding: 6px 20px 6px 20px;
+  padding: 6px 20px;
   border-radius: 25px;
   color: white;
-  background-image: linear-gradient(to right, #464646 7%, #658cf6 100%);
+  background-image: linear-gradient(to right, #464646 7%, #ff0000 100%);
 `;
 
 export default DeleteActivity;

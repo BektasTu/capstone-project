@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import styled from "styled-components";
+import { IoIosAddCircle } from "react-icons/io";
 
 const AddActivity = (props) => {
   const [activityName, setActivityName] = useState("");
@@ -7,44 +9,44 @@ const AddActivity = (props) => {
   const [activityTime, setActivityTime] = useState();
 
   return (
-    <div>
-      <div className="Text-Components">
-        <input
+    <>
+      <TextComponents>
+        <InputName>Activity Name:</InputName>
+        <Inputs
           type="text"
           name=""
           id="activityName"
-          className="Inputs"
-          placeholder="Name"
+          placeholder="Name ..."
           onChange={(event) => setActivityName(event.target.value)}
         />
-        <input
+        <InputName>Date:</InputName>
+        <Inputs
           type="date"
           name=""
           id="activityDate"
-          className="Inputs"
           onChange={(event) => setActivityDate(event.target.value)}
         />
-        <input
+        <InputName>City:</InputName>
+        <Inputs
           type="text"
           name=""
           id="activityCity"
-          className="Inputs"
-          placeholder="City"
+          placeholder="City ..."
           onChange={(event) => setActivityCity(event.target.value)}
         />
-        <input
+        <InputName>Time:</InputName>
+        <Inputs
           type="time"
           name=""
           id="activityTime"
-          className="Inputs"
           onChange={(event) => setActivityTime(event.target.value)}
         />
-      </div>
+      </TextComponents>
 
-      <input
+      <AddButton
+        size={30}
         type="button"
         value="Add Activity"
-        className="Function-Buttons"
         onClick={() =>
           props.add(
             props.id + 1,
@@ -55,8 +57,34 @@ const AddActivity = (props) => {
           )
         }
       />
-    </div>
+    </>
   );
 };
 
+const TextComponents = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: white;
+`;
+
+const Inputs = styled.input`
+  width: 15%;
+  margin: 10px;
+  text-transform: capitalize;
+`;
+
+const AddButton = styled(IoIosAddCircle)`
+  border: none;
+  padding: 6px 20px 6px 20px;
+  border-radius: 25px;
+  color: white;
+  background-image: linear-gradient(to right, #464646 7%, #00ff00 100%);
+`;
+
+const InputName = styled.p`
+  display: flex;
+  align-content: center;
+  margin-top: 0.5rem;
+`;
 export default AddActivity;
