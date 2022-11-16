@@ -9,10 +9,6 @@ export default function Card() {
     activityList: [
       {
         id: 1,
-        name: "",
-        date: "",
-        city: "",
-        time: "",
       },
     ],
   });
@@ -76,13 +72,16 @@ export default function Card() {
 
 const InputComponent = styled.div`
   background-color: rgba(0, 0, 0, 0.404);
-  padding: 20px;
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 `;
 
 const AllCards = styled.div`
+  position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-top: 20px;
 `;

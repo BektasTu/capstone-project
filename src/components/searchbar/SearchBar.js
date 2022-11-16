@@ -1,13 +1,37 @@
-import React from "react";
+import { useState } from "react";
 import styled from "styled-components";
-import { UilSearch, UilLocationPoint } from "@iconscout/react-unicons";
+import { FaSearchLocation, FaLocationArrow } from "react-icons/fa";
+import { toast } from "react-toastify";
 
-function SearchBar() {
+function SearchBar({ setQuery }) {
+  const [city, setCity] = useState("");
+
+  const handleSearchClick = () => {
+    if (city !== "") setQuery({ q: city });
+  };
+
+  const handleLocationClick = () => {
+    if (navigator.geolocation) {
+      toast.info("Fetching users location.");
+      navigator.geolocation.getCurrentPosition((position) => {
+        toast.success("Location fetched!");
+        let lat = position.coords.latitude;
+        let lon = position.coords.longitude;
+
+        setQuery({ lat, lon });
+      });
+    }
+  };
   return (
     <>
-      <Search type="text" placeholder="search for a city..." />
-      <SearchButton size={25} />
-      <LocationButton size={25} />
+      <Search
+        value={city}
+        onChange={(event) => setCity(event.currentTarget.value)}
+        type="text"
+        placeholder="search for a city..."
+      />
+      <SearchButton size={20} onClick={handleSearchClick} />
+      <LocationButton size={20} onClick={handleLocationClick} />
     </>
   );
 }
@@ -25,12 +49,12 @@ const Search = styled.input`
     outline: none;
   }
 `;
-const SearchButton = styled(UilSearch)`
+const SearchButton = styled(FaSearchLocation)`
   color: white;
   cursor: pointer;
 `;
 
-const LocationButton = styled(UilLocationPoint)`
+const LocationButton = styled(FaLocationArrow)`
   color: white;
   cursor: pointer;
   margin-left: 0.8rem;

@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { RiDeleteBin2Fill } from "react-icons/ri";
 
 const ActivityCards = (props) => {
+  const [activity] = useState("");
   return (
     <CardContainer>
-      <Delete
-        type="button"
+      <DeleteButton
         size={30}
-        onClick={() => props.delete(ActivityCards)}
+        value="Delete Activity"
+        onClick={() => props.delete(activity)}
       />
       <ActivityName>{props.name}</ActivityName>
       <SubText>{"Date: " + props.date}</SubText>
@@ -21,10 +21,9 @@ const ActivityCards = (props) => {
 const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 28%;
-  border-radius: 7px;
-  margin: 5px;
-  padding: 10px;
+  border-radius: 10px;
+  padding: 15px;
+  align-items: flex-start;
   background-color: rgb(80, 80, 80);
   word-break: break-word;
   hyphens: auto;
@@ -41,11 +40,12 @@ const ActivityName = styled.h1`
   text-transform: capitalize;
 `;
 
-const Delete = styled(RiDeleteBin2Fill)`
+const DeleteButton = styled.button`
   border: none;
-  padding: 6px 20px;
   border-radius: 25px;
   color: white;
   background-image: linear-gradient(to right, #464646 7%, #ff0000 100%);
+  width: 4rem;
 `;
+
 export default ActivityCards;

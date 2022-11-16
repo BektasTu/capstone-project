@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { RiDeleteBin2Fill } from "react-icons/ri";
 
 const DeleteActivity = (props) => {
   const [activity, setActivity] = useState("");
@@ -12,7 +13,8 @@ const DeleteActivity = (props) => {
         placeholder="Name ..."
         onChange={(event) => setActivity(event.target.value)}
       />
-      <FunctionButtons
+      <DeleteButton
+        size={30}
         value="Delete Activity"
         onClick={() => props.delete(activity)}
       />
@@ -21,20 +23,23 @@ const DeleteActivity = (props) => {
 };
 
 const DeleteComponents = styled.div`
-  margin-top: 30px;
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-self: center;
 `;
 
 const Inputs = styled.input`
-  width: 15%;
-  margin: 10px;
+  width: auto;
+  text-transform: capitalize;
 `;
 
-const FunctionButtons = styled.button`
+const DeleteButton = styled(RiDeleteBin2Fill)`
   border: none;
-  padding: 6px 20px;
   border-radius: 25px;
   color: white;
   background-image: linear-gradient(to right, #464646 7%, #ff0000 100%);
+  width: 6rem;
 `;
 
 export default DeleteActivity;
