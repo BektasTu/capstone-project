@@ -4,10 +4,14 @@ import {
   UilWind,
   UilSun,
   UilSunset,
+  UilTemperatureEmpty,
 } from "@iconscout/react-unicons";
 import React from "react";
 import styled from "styled-components";
-import { formatToLocalTime } from "../../services/weatherService";
+import {
+  formatToLocalTime,
+  iconUrlFromCode,
+} from "../../services/weatherService";
 
 function TemperatureAndDetails({
   weather: {
@@ -29,12 +33,7 @@ function TemperatureAndDetails({
     <>
       <WeatherDescription>{details}</WeatherDescription>
       <Container>
-        {icon && (
-          <WeatherIcon
-            src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
-            size={50}
-          />
-        )}
+        <WeatherIcon src={iconUrlFromCode(icon)} size={50} />
         <Degree>{`${temp.toFixed()}˚`}</Degree>
         <WeatherDetails>
           <DetailsSide>
@@ -70,11 +69,11 @@ function TemperatureAndDetails({
             {formatToLocalTime(sunset, timezone, "T")}
           </NumberDetails>
         </TextDetails>
-        <UilSun />
+        <UilTemperature />
         <TextDetails>
           High: <NumberDetails>{`${temp_max.toFixed()}˚`}</NumberDetails>
         </TextDetails>
-        <UilSun />
+        <UilTemperatureEmpty />
         <TextDetails>
           Low: <NumberDetails>{`${temp_min.toFixed()}˚`}</NumberDetails>
         </TextDetails>

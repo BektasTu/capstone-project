@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { iconUrlFromCode } from "../../services/weatherService";
 
 function Forecast({ title, items }) {
-  console.log(items);
   return (
     <>
       <ForecastPosition>
@@ -15,7 +14,7 @@ function Forecast({ title, items }) {
           items.map((item, index) => (
             <Details key={index}>
               <DetailsTemperature>{item.title}</DetailsTemperature>
-              <DetailsIcon />
+              <DetailsIcon src={iconUrlFromCode(item.icon)} />
               <DetailsDegree>{`${item.temp.toFixed()}°`}</DetailsDegree>
             </Details>
           ))}
@@ -61,7 +60,7 @@ const DetailsTemperature = styled.p`
   line-height: 1.25rem;
 `;
 
-const DetailsIcon = styled(iconUrlFromCode)`
+const DetailsIcon = styled.img`
   margin: 0.25rem auto;
   width: 3rem;
 `;

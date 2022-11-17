@@ -6,7 +6,8 @@ import TimeAndLocation from "../components/weather-card/TimeAndLocation";
 import getFormattedWeatherData from "../services/weatherService.js";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { toast } from "react-toastify";
+import { ToastContainer, toast, Flip } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
   const [query, setQuery] = useState({ q: "berlin" });
@@ -15,10 +16,6 @@ export default function Home() {
 
   useEffect(() => {
     const fetchWeather = async () => {
-      const message = query.q ? query.q : "current location.";
-
-      toast.info("Fetching weather for " + message);
-
       await getFormattedWeatherData({ ...query, units }).then((data) => {
         toast.success(
           `Successfully fetched weather for ${data.name}, ${data.country}.`
@@ -30,11 +27,22 @@ export default function Home() {
 
     fetchWeather();
   }, [query, units]);
-  console.log(weather);
+
+  const formatBackground = () => {
+    if (!weather)
+      return "background-image: linear-gradient(to top, #334155 0%, #3f3f46 100%)";
+    const threshold = units === "metric" ? 20 : 60;
+    if (weather.temp <= threshold)
+      return "background-image: linear-gradient(to top, #0E7490 0%, #1D4ED8 100%)";
+
+    return "background-image: linear-gradient(to top, #A16207 0%, #C2410C 100%)";
+  };
+
   return (
     <Container>
       <CityButtons setQuery={setQuery} />
       <SearchBar setQuery={setQuery} units={units} setUnits={setUnits} />
+
       {weather && (
         <>
           <TimeAndLocation weather={weather} />
@@ -44,6 +52,13 @@ export default function Home() {
           <Forecast title="DAILY FORECAST" items={weather.daily} />
         </>
       )}
+
+      <ToastContainer
+        autoClose={1500}
+        type="success"
+        theme="colored"
+        newestOnTop={true}
+      />
     </Container>
   );
 }

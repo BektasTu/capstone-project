@@ -1,7 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { FaSearchLocation, FaLocationArrow } from "react-icons/fa";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function SearchBar({ setQuery }) {
   const [city, setCity] = useState("");
@@ -12,13 +13,15 @@ function SearchBar({ setQuery }) {
 
   const handleLocationClick = () => {
     if (navigator.geolocation) {
-      toast.info("Fetching users location.");
       navigator.geolocation.getCurrentPosition((position) => {
         toast.success("Location fetched!");
         let lat = position.coords.latitude;
         let lon = position.coords.longitude;
 
-        setQuery({ lat, lon });
+        setQuery({
+          lat,
+          lon,
+        });
       });
     }
   };
@@ -26,7 +29,7 @@ function SearchBar({ setQuery }) {
     <>
       <Search
         value={city}
-        onChange={(event) => setCity(event.currentTarget.value)}
+        onChange={(e) => setCity(e.currentTarget.value)}
         type="text"
         placeholder="search for a city..."
       />
