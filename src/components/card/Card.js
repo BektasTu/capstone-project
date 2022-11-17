@@ -1,11 +1,11 @@
-import React, { useState } from "react";
 import styled from "styled-components";
+import useLocalStorage from "../../hooks/useLocalStorage";
 import ActivityCards from "./ActivityCards";
 import AddActivity from "./AddActivity";
 import DeleteActivity from "./DeleteActivity";
 
 export default function Card() {
-  const [activities, setActivities] = useState({
+  const [activities, setActivities] = useLocalStorage("activities", {
     activityList: [
       {
         id: 1,
