@@ -35,6 +35,7 @@ const NavbarList = styled.ul`
     color: #f8f8ff;
     font-size: 1rem;
     position: relative;
+    padding: 1rem;
     list-style: none;
     text-transform: uppercase;
     font-family: verdana;

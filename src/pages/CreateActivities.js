@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 export default function CreateActivities({ onHandleSubmit }) {
   const navigate = useNavigate();
 
+  //This is a function to get the actual date
   var today = new Date();
   var dd = today.getDate();
   var mm = today.getMonth() + 1;
@@ -29,7 +30,7 @@ export default function CreateActivities({ onHandleSubmit }) {
   }
 
   return (
-    <>
+    <Background>
       <CreateForm onSubmit={onSubmit}>
         <Subheader>New activity</Subheader>
         <label htmlFor="newActivity">Your activity:</label>
@@ -37,20 +38,22 @@ export default function CreateActivities({ onHandleSubmit }) {
           name="newActivity"
           id="newActivity"
           cols="30"
-          rows="5"
+          rows="4"
           placeholder="max. 50 letters"
           maxLength="50"
           required
         ></textarea>
 
-        <label htmlFor="newTag1">Tags:</label>
+        <label htmlFor="newTag1">City:</label>
         <input
           type="text"
           maxLength="30"
           id="newCity"
           name="newCity"
-          placeholder="city ..."
+          placeholder="city name ..."
+          required
         />
+        <label htmlFor="newTag1">Date:</label>
         <input
           type="date"
           value={today}
@@ -59,17 +62,22 @@ export default function CreateActivities({ onHandleSubmit }) {
           name="newDate"
           required
         />
+        <label htmlFor="newTag1">Time:</label>
         <input type="time" id="newTime" name="newTime" required />
 
-        <button type="submit">Add Activity</button>
+        <AddButton type="submit">Add Activity</AddButton>
       </CreateForm>
-      <Container></Container>
-    </>
+    </Background>
   );
 }
 
+const Background = styled.div`
+  background-color: #1d4ed8;
+`;
+
 const Subheader = styled.h2`
   text-align: center;
+  text-shadow: 0 2px 25px 10px #d946ef;
 `;
 
 const CreateForm = styled.form`
@@ -77,14 +85,26 @@ const CreateForm = styled.form`
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
 `;
-const Container = styled.div`
-  width: 90%;
-  display: flex;
-  flex-wrap: wrap;
-  flex: 1 0 auto;
-  justify-content: center;
-  align-items: top;
-  gap: 0 20px;
-  margin: 0 auto;
+
+const AddButton = styled.button`
+  display: inline-block;
+  font-size: 1em;
+  padding: 1em 2em;
+  margin-top: 100px;
+  margin-bottom: 60px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #ff0081;
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
+
+  &:focus {
+    outline: 0;
+  }
 `;

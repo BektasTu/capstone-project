@@ -1,17 +1,17 @@
 import styled from "styled-components";
 
-export default function Card({ id, activity, tags, onDelete, onToggle }) {
+export default function Card({ id, activity, tags, onDelete }) {
   return (
     <CardArticle>
       <h2>{activity}</h2>
+      <DeleteButton type="button" onClick={() => onDelete(id)}>
+        X
+      </DeleteButton>
       <TagContainer>
         {tags.map((tag) => (
           <Container key={Math.random()}>{tag}</Container>
         ))}
       </TagContainer>
-      <DeleteButton type="button" onClick={() => onDelete(id)}>
-        X
-      </DeleteButton>
     </CardArticle>
   );
 }
