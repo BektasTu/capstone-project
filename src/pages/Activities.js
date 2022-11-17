@@ -4,13 +4,12 @@ import Card from "../components/card/Card.js";
 
 function Activities({ cards, onDelete, onToggle }) {
   return (
-    <Background>
+    <>
       <StyledHeader>Your Activities</StyledHeader>
       <CardContainer>
         {cards.map((card) => {
           return (
             <Card
-              key={card.id}
               id={card.id}
               activity={card.activity}
               tags={card.tags}
@@ -20,13 +19,9 @@ function Activities({ cards, onDelete, onToggle }) {
           );
         })}
       </CardContainer>
-    </Background>
+    </>
   );
 }
-
-const Background = styled.div`
-  background: blue;
-`;
 
 const StyledHeader = styled.h1`
   display: flex;
@@ -46,7 +41,6 @@ const CardContainer = styled.div`
   align-items: top;
   gap: 0 20px;
   margin: 0 auto;
-  background-color: aquamarine;
 `;
 
 export default Activities;

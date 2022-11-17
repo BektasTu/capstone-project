@@ -33,7 +33,7 @@ export default function CreateActivities({ onHandleSubmit }) {
     <Background>
       <CreateForm onSubmit={onSubmit}>
         <Subheader>New activity</Subheader>
-        <label htmlFor="newActivity">Your activity:</label>
+        <label htmlFor="newActivity">Activity:</label>
         <textarea
           name="newActivity"
           id="newActivity"
@@ -50,7 +50,7 @@ export default function CreateActivities({ onHandleSubmit }) {
           maxLength="30"
           id="newCity"
           name="newCity"
-          placeholder="city name ..."
+          placeholder="e.g. New York ..."
           required
         />
         <label htmlFor="newTag1">Date:</label>
