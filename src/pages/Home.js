@@ -6,7 +6,7 @@ import TimeAndLocation from "../components/weather-card/TimeAndLocation";
 import getFormattedWeatherData from "../services/weatherService.js";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { ToastContainer, toast, Flip } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
@@ -29,17 +29,16 @@ export default function Home() {
   }, [query, units]);
 
   const formatBackground = () => {
-    if (!weather)
-      return "background-image: linear-gradient(to top, #334155 0%, #3f3f46 100%)";
+    if (!weather) return "linear-gradient(to top, #334155 0%, #3f3f46 100%)";
     const threshold = units === "metric" ? 20 : 60;
     if (weather.temp <= threshold)
-      return "background-image: linear-gradient(to top, #0E7490 0%, #1D4ED8 100%)";
+      return "linear-gradient(to top, #0E7490 0%, #1D4ED8 100%)";
 
-    return "background-image: linear-gradient(to top, #A16207 0%, #C2410C 100%)";
+    return "linear-gradient(to top, #A16207 0%, #C2410C 100%)";
   };
 
   return (
-    <Container>
+    <Container variant={formatBackground()}>
       <CityButtons setQuery={setQuery} />
       <SearchBar setQuery={setQuery} units={units} setUnits={setUnits} />
 
@@ -48,7 +47,9 @@ export default function Home() {
           <TimeAndLocation weather={weather} />
           <TemperatureAndDetails weather={weather} />
 
-          <Forecast title="HOURLY FORECAST" items={weather.hourly} />
+          {weather && (
+            <Forecast title="HOURLY FORECAST" items={weather.hourly} />
+          )}
           <Forecast title="DAILY FORECAST" items={weather.daily} />
         </>
       )}
@@ -64,5 +65,5 @@ export default function Home() {
 }
 
 const Container = styled.div`
-  background-image: linear-gradient(to top, #334155 0%, #3f3f46 100%);
+  background-image: ${({ variant }) => variant};
 `;
