@@ -9,7 +9,7 @@ export default function Card({ id, activity, tags, onDelete }) {
       </DeleteButton>
       <TagContainer>
         {tags.map((tag) => (
-          <Container key={Math.random()}>{tag}</Container>
+          <Container key={Math.id()}>{tag}</Container>
         ))}
       </TagContainer>
     </CardArticle>
