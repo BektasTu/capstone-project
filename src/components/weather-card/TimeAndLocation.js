@@ -8,6 +8,7 @@ function TimeAndLocation({ weather: { dt, timezone, name, country } }) {
       <TimeAndDatePosition>
         <DateAndTime>{formatToLocalTime(dt, timezone)}</DateAndTime>
       </TimeAndDatePosition>
+
       <LocationPosition>
         <Location>{`${name}, ${country}`}</Location>
       </LocationPosition>

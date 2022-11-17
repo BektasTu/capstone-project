@@ -4,6 +4,7 @@ import {
   UilWind,
   UilSun,
   UilSunset,
+  UilTemperatureEmpty,
 } from "@iconscout/react-unicons";
 import React from "react";
 import styled from "styled-components";
@@ -27,11 +28,12 @@ function TemperatureAndDetails({
     timezone,
   },
 }) {
+  console.log(icon);
   return (
     <>
       <WeatherDescription>{details}</WeatherDescription>
       <Container>
-        <WeatherIcon size={90} />
+        <WeatherIcon src={iconUrlFromCode(icon)} size={50} />
         <Degree>{`${temp.toFixed()}˚`}</Degree>
         <WeatherDetails>
           <DetailsSide>
@@ -55,23 +57,23 @@ function TemperatureAndDetails({
       <DetailsBottom>
         <UilSun />
         <TextDetails>
-          Rise:{" "}
+          Rise:{""}
           <NumberDetails>
-            {formatToLocalTime(sunrise, timezone, "hh:mm a")}
+            {formatToLocalTime(sunrise, timezone, "T")}
           </NumberDetails>
         </TextDetails>
         <UilSunset />
         <TextDetails>
-          Set:{" "}
+          Set:{""}
           <NumberDetails>
-            {formatToLocalTime(sunset, timezone, "hh:mm a")}
+            {formatToLocalTime(sunset, timezone, "T")}
           </NumberDetails>
         </TextDetails>
-        <UilSun />
+        <UilTemperature />
         <TextDetails>
           High: <NumberDetails>{`${temp_max.toFixed()}˚`}</NumberDetails>
         </TextDetails>
-        <UilSun />
+        <UilTemperatureEmpty />
         <TextDetails>
           Low: <NumberDetails>{`${temp_min.toFixed()}˚`}</NumberDetails>
         </TextDetails>
@@ -99,7 +101,7 @@ const Container = styled.div`
   color: white;
 `;
 
-const WeatherIcon = styled(iconUrlFromCode)`
+const WeatherIcon = styled.img`
   width: 7rem;
 `;
 
@@ -143,10 +145,9 @@ const HumidityIcon = styled(UilTear)`
 const DetailsBottom = styled.div`
   display: flex;
   padding: 0.75rem auto;
-  margin-left: 0.5rem;
   font-size: 0.88rem;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   color: white;
 `;

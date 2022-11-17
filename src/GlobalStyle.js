@@ -16,7 +16,6 @@ const GlobalStyle = createGlobalStyle`
 
 html {
     box-sizing: border-box;
-  
 
     @media only screen and (min-width: 1024px) {
   .container header .header-nav-area #nav_container  {
@@ -27,7 +26,6 @@ html {
 
   body {
     margin: 0;
-    background-image: linear-gradient(-20deg, #616161 0%, #9bc5c3 100%);
     width: 100vw;
     height: 100vh;
     font-family: 'Noto Sans', 'Segoe UI', 'Roboto', 'Oxygen',

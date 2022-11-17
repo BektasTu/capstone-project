@@ -9,15 +9,16 @@ function Forecast({ title, items }) {
         <HourlyText>{title}</HourlyText>
       </ForecastPosition>
       <Break />
-      <HourlyContent>
-        {items.map((item, index) => (
-          <Details key={index}>
-            <DetailsHour>{item.title}</DetailsHour>
-            <DetailsIcon />
-            <DetailsDegree>{`${item.temp.toFixed()}˚`}</DetailsDegree>
-          </Details>
-        ))}
-      </HourlyContent>
+      <Content>
+        {items &&
+          items.map((item, index) => (
+            <Details key={index}>
+              <DetailsTemperature>{item.title}</DetailsTemperature>
+              <DetailsIcon src={iconUrlFromCode(item.icon)} />
+              <DetailsDegree>{`${item.temp.toFixed()}°`}</DetailsDegree>
+            </Details>
+          ))}
+      </Content>
     </>
   );
 }
@@ -39,7 +40,7 @@ const Break = styled.hr`
   color: white;
 `;
 
-const HourlyContent = styled.div`
+const Content = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -54,12 +55,12 @@ const Details = styled.div`
   justify-content: center;
 `;
 
-const DetailsHour = styled.p`
+const DetailsTemperature = styled.p`
   font-size: 0.875rem;
   line-height: 1.25rem;
 `;
 
-const DetailsIcon = styled(iconUrlFromCode)`
+const DetailsIcon = styled.img`
   margin: 0.25rem auto;
   width: 3rem;
 `;

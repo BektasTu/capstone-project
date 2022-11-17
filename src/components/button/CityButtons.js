@@ -13,15 +13,15 @@ function CityButtons({ setQuery }) {
     },
     {
       id: 3,
-      title: "Tokyo",
+      title: "Naples",
     },
     {
       id: 4,
-      title: "Miami",
+      title: "Paris",
     },
     {
       id: 5,
-      title: "Johannesburg",
+      title: "Madrid",
     },
   ];
 
@@ -40,7 +40,6 @@ const ButtonPosition = styled.div`
   position: relative;
   display: flex;
   justify-content: space-evenly;
-  background-color: #3b4a5c;
   padding-bottom: 0.1rem;
 `;
 

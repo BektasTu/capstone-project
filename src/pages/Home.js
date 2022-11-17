@@ -5,25 +5,43 @@ import TemperatureAndDetails from "../components/weather-card/TemperatureAndDeta
 import TimeAndLocation from "../components/weather-card/TimeAndLocation";
 import getFormattedWeatherData from "../services/weatherService.js";
 import { useEffect, useState } from "react";
+import styled from "styled-components";
+import { ToastContainer, toast, Flip } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
   const [query, setQuery] = useState({ q: "berlin" });
   const [weather, setWeather] = useState(null);
+  const [units, setUnits] = useState("metric");
 
   useEffect(() => {
     const fetchWeather = async () => {
-      await getFormattedWeatherData({ ...query }).then((data) => {
+      await getFormattedWeatherData({ ...query, units }).then((data) => {
+        toast.success(
+          `Successfully fetched weather for ${data.name}, ${data.country}.`
+        );
+
         setWeather(data);
       });
     };
 
     fetchWeather();
-  }, [query]);
+  }, [query, units]);
+
+  const formatBackground = () => {
+    if (!weather)
+      return "background-image: linear-gradient(to top, #334155 0%, #3f3f46 100%)";
+    const threshold = units === "metric" ? 20 : 60;
+    if (weather.temp <= threshold)
+      return "background-image: linear-gradient(to top, #0E7490 0%, #1D4ED8 100%)";
+
+    return "background-image: linear-gradient(to top, #A16207 0%, #C2410C 100%)";
+  };
 
   return (
-    <>
-      <CityButtons />
-      <SearchBar />
+    <Container>
+      <CityButtons setQuery={setQuery} />
+      <SearchBar setQuery={setQuery} units={units} setUnits={setUnits} />
 
       {weather && (
         <>
@@ -34,6 +52,17 @@ export default function Home() {
           <Forecast title="DAILY FORECAST" items={weather.daily} />
         </>
       )}
-    </>
+
+      <ToastContainer
+        autoClose={1500}
+        type="success"
+        theme="colored"
+        newestOnTop={true}
+      />
+    </Container>
   );
 }
+
+const Container = styled.div`
+  background-image: linear-gradient(to top, #334155 0%, #3f3f46 100%);
+`;
