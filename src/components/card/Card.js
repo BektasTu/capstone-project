@@ -9,11 +9,6 @@ export default function Card({ id, tags, onDelete, onChange }) {
         aria-label="delete"
         onClick={() => onDelete(id)}
       />
-      <EditButton
-        type="button"
-        aria-label="edit"
-        onClick={() => onChange(tags)}
-      />
 
       <TagContainer>
         {tags.map((tag) => (
@@ -70,7 +65,6 @@ const EditButton = styled(BsFillPencilFill)`
   top: 10px;
   border-radius: 5px;
   box-shadow: 0 2px 25px yellow;
-  cursor: pointer;
 `;
 
 const Container = styled.div`
