@@ -6,7 +6,7 @@ function PageNotFound() {
   return (
     <Error>
       <h1>404</h1>
-      <h2> We can't find that page</h2>
+      <h4> We can't find that page</h4>
       <GoHome to="/">Go Home</GoHome>
     </Error>
   );
@@ -17,6 +17,7 @@ const Error = styled.div`
   display: flex;
   flex-direction: column;
   font-size: xx-large;
+  margin-top: 50%;
 `;
 
 const GoHome = styled(Link)`
@@ -25,7 +26,8 @@ const GoHome = styled(Link)`
   border-radius: 5px;
   &:hover,
   &:focus {
-    color: red;
+    color: palevioletred;
+    text-shadow: 3px 3px 20px #ff99cc, -2px 1px 30px #ff99cc;
   }
 `;
 

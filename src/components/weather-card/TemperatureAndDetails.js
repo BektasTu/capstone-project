@@ -119,7 +119,7 @@ const WeatherDetails = styled.div`
 const DetailsSide = styled.div`
   display: flex;
   font-size: 0.875rem;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
   line-height: 1.25rem;
   font-weight: 300;

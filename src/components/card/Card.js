@@ -8,10 +8,8 @@ export default function Card({ id, activity, tags, onDelete }) {
         type="button"
         aria-label="delete"
         onClick={() => onDelete(id)}
-      >
-        X
-      </DeleteButton>
-      <h2>{activity}</h2>
+      />
+
       <TagContainer>
         {tags.map((tag) => (
           <Container key={Math.random()}>{tag}</Container>
@@ -31,10 +29,14 @@ const CardArticle = styled.article`
   text-align: center;
   border: 1px solid black;
   border-radius: 20px;
-  background-color: black;
+  background-color: #334155;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 `;
 const TagContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   margin-top: 20px;
   gap: 15px;
 `;
@@ -46,8 +48,9 @@ const DeleteButton = styled(BsTrashFill)`
   position: absolute;
   padding: 2px;
   right: 20px;
-  top: 20px;
+  top: 10px;
   border-radius: 5px;
+  box-shadow: 0 2px 25px red;
 `;
 
 const Container = styled.div`
