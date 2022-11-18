@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Card from "../components/card/Card.js";
 
-function Activities({ cards, onDelete, onToggle, onChange }) {
+function Activities({ cards, onDelete, onToggle }) {
   return (
     <>
       <StyledBackground>
@@ -15,7 +15,6 @@ function Activities({ cards, onDelete, onToggle, onChange }) {
                 activity={card.activity}
                 tags={card.tags}
                 onDelete={onDelete}
-                onChange={onChange}
                 onToggle={onToggle}
               />
             );

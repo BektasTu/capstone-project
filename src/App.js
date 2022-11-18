@@ -12,7 +12,6 @@ import { setLocalStorage, loadLocalStorage } from "./hook/localStorage";
 const cards = [{}];
 
 function App() {
-  const [currentActivity, setCurrentActivity] = useState({});
   const [cardArray, setCards] = useState(
     loadLocalStorage("cardArray") ?? cards
   );
@@ -32,23 +31,13 @@ function App() {
     setCards(cardArray.filter((card) => card.id !== cardId));
   }
 
-  function handleEditInputChange(e) {
-    setCurrentActivity({ ...currentActivity, text: e.target.value });
-  }
-
   return (
     <Container>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
           path="/activities"
-          element={
-            <Activities
-              cards={cardArray}
-              onDelete={deleteCard}
-              onChange={handleEditInputChange}
-            />
-          }
+          element={<Activities cards={cardArray} onDelete={deleteCard} />}
         />
         <Route
           path="/createActivities"
