@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Card from "../components/card/Card.js";
 
-function Activities({ cards, onDelete, onToggle }) {
+function Activities({ cards, onDelete, onToggle, onChange }) {
   return (
     <>
       <StyledBackground>
@@ -15,6 +15,7 @@ function Activities({ cards, onDelete, onToggle }) {
                 activity={card.activity}
                 tags={card.tags}
                 onDelete={onDelete}
+                onChange={onChange}
                 onToggle={onToggle}
               />
             );
@@ -34,7 +35,6 @@ const StyledBackground = styled.div`
 const StyledHeader = styled.h1`
   display: flex;
   justify-content: center;
-  background: #1d4ed8;
 `;
 
 const CardContainer = styled.div`

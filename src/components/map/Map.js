@@ -27,7 +27,8 @@ function Map() {
         style={{
           width: "23rem",
           height: "11rem",
-          borderRadius: "20px",
+          borderRadius: "10px",
+          border: "solid 1px black",
           boxShadow: "0 0 10px black",
           margin: "2rem auto",
         }}

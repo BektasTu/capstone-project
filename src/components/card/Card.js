@@ -1,13 +1,18 @@
 import styled from "styled-components";
-import { BsTrashFill } from "react-icons/bs";
+import { BsTrashFill, BsFillPencilFill } from "react-icons/bs";
 
-export default function Card({ id, activity, tags, onDelete }) {
+export default function Card({ id, tags, onDelete, onChange }) {
   return (
     <CardArticle>
       <DeleteButton
         type="button"
         aria-label="delete"
         onClick={() => onDelete(id)}
+      />
+      <EditButton
+        type="button"
+        aria-label="edit"
+        onClick={() => onChange(tags)}
       />
 
       <TagContainer>
@@ -51,6 +56,21 @@ const DeleteButton = styled(BsTrashFill)`
   top: 10px;
   border-radius: 5px;
   box-shadow: 0 2px 25px red;
+  cursor: pointer;
+`;
+
+const EditButton = styled(BsFillPencilFill)`
+  background-color: yellow;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  color: black;
+  position: absolute;
+  padding: 2px;
+  right: 60px;
+  top: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 25px yellow;
+  cursor: pointer;
 `;
 
 const Container = styled.div`
