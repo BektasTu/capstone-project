@@ -34,7 +34,6 @@ const StyledBackground = styled.div`
 const StyledHeader = styled.h1`
   display: flex;
   justify-content: center;
-  background: #1d4ed8;
 `;
 
 const CardContainer = styled.div`

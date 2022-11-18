@@ -28,7 +28,6 @@ function TemperatureAndDetails({
     timezone,
   },
 }) {
-  console.log(icon);
   return (
     <>
       <WeatherDescription>{details}</WeatherDescription>

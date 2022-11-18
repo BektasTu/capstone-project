@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { FaSearchLocation, FaLocationArrow } from "react-icons/fa";
+import { IoLocationSharp, IoSearchSharp } from "react-icons/io5";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -33,8 +33,8 @@ function SearchBar({ setQuery }) {
         type="text"
         placeholder="search for a city..."
       />
-      <SearchButton size={20} onClick={handleSearchClick} />
-      <LocationButton size={20} onClick={handleLocationClick} />
+      <SearchButton size={25} onClick={handleSearchClick} />
+      <LocationButton size={25} onClick={handleLocationClick} />
     </>
   );
 }
@@ -52,18 +52,16 @@ const Search = styled.input`
     outline: none;
   }
 `;
-const SearchButton = styled(FaSearchLocation)`
+const SearchButton = styled(IoSearchSharp)`
   color: white;
   cursor: pointer;
   margin-bottom: -0.4rem;
-  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 `;
 
-const LocationButton = styled(FaLocationArrow)`
+const LocationButton = styled(IoLocationSharp)`
   color: white;
   cursor: pointer;
   margin: -0.4rem 0.8rem;
-  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 `;
 
 export default SearchBar;

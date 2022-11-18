@@ -107,7 +107,6 @@ const AddButton = styled.button`
   cursor: pointer;
   position: relative;
   box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
-
   &:focus {
     outline: 0;
   }

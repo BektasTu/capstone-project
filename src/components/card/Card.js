@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { BsTrashFill } from "react-icons/bs";
 
-export default function Card({ id, activity, tags, onDelete }) {
+export default function Card({ id, tags, onDelete }) {
   return (
     <CardArticle>
       <DeleteButton
@@ -51,6 +51,7 @@ const DeleteButton = styled(BsTrashFill)`
   top: 10px;
   border-radius: 5px;
   box-shadow: 0 2px 25px red;
+  cursor: pointer;
 `;
 
 const Container = styled.div`
