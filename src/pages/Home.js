@@ -1,6 +1,5 @@
 import CityButtons from "../components/button/CityButtons";
 import SearchBar from "../components/searchbar/SearchBar";
-import Forecast from "../components/weather-card/Forecast";
 import TemperatureAndDetails from "../components/weather-card/TemperatureAndDetails";
 import TimeAndLocation from "../components/weather-card/TimeAndLocation";
 import getFormattedWeatherData from "../services/weatherService.js";
@@ -8,6 +7,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Map from "../components/map/Map";
 
 export default function Home() {
   const [query, setQuery] = useState({ q: "berlin" });
@@ -46,13 +46,10 @@ export default function Home() {
         <>
           <TimeAndLocation weather={weather} />
           <TemperatureAndDetails weather={weather} />
-
-          {weather && (
-            <Forecast title="HOURLY FORECAST" items={weather.hourly} />
-          )}
-          <Forecast title="DAILY FORECAST" items={weather.daily} />
         </>
       )}
+
+      <Map />
 
       <ToastContainer
         autoClose={1500}
@@ -66,4 +63,6 @@ export default function Home() {
 
 const Container = styled.div`
   background-image: ${({ variant }) => variant};
+  width: 100%;
+  height: 100%;
 `;

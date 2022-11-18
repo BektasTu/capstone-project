@@ -5,32 +5,36 @@ import Card from "../components/card/Card.js";
 function Activities({ cards, onDelete, onToggle }) {
   return (
     <>
-      <StyledHeader>Your Activities</StyledHeader>
-      <CardContainer>
-        {cards.map((card) => {
-          return (
-            <Card
-              id={card.id}
-              activity={card.activity}
-              tags={card.tags}
-              onDelete={onDelete}
-              onToggle={onToggle}
-            />
-          );
-        })}
-      </CardContainer>
+      <StyledBackground>
+        <StyledHeader>Your Activities</StyledHeader>
+        <CardContainer>
+          {cards.map((card) => {
+            return (
+              <Card
+                id={card.id}
+                activity={card.activity}
+                tags={card.tags}
+                onDelete={onDelete}
+                onToggle={onToggle}
+              />
+            );
+          })}
+        </CardContainer>
+      </StyledBackground>
     </>
   );
 }
 
+const StyledBackground = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: #1d4ed8;
+`;
+
 const StyledHeader = styled.h1`
   display: flex;
   justify-content: center;
-  color: #333333;
-  background: #ffffff;
-  text-shadow: 2px 2px 0px #ffffff, 5px 4px 0px rgba(0, 0, 0, 0.15);
-  color: #333333;
-  background: #ffffff;
+  background: #1d4ed8;
 `;
 
 const CardContainer = styled.div`
@@ -40,7 +44,6 @@ const CardContainer = styled.div`
   justify-content: center;
   align-items: top;
   gap: 0 20px;
-  margin: 0 auto;
 `;
 
 export default Activities;

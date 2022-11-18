@@ -22,15 +22,18 @@ export default function CreateActivities({ onHandleSubmit }) {
     event.preventDefault();
     const form = event.target;
     const { newActivity, newCity, newDate, newTime } = form.elements;
-    let newTags = [newCity.value, newDate.value, newTime.value].filter(
-      (tag) => tag.length > 0
-    );
+    let newTags = [
+      newActivity.value,
+      newCity.value,
+      newDate.value,
+      newTime.value,
+    ].filter((tag) => tag.length > 0);
     onHandleSubmit(newActivity.value, newTags);
     navigate("/activities");
   }
 
   return (
-    <Background>
+    <StyledBackground>
       <CreateForm onSubmit={onSubmit}>
         <Subheader>New activity</Subheader>
         <label htmlFor="newActivity">Activity:</label>
@@ -44,7 +47,7 @@ export default function CreateActivities({ onHandleSubmit }) {
           required
         ></textarea>
 
-        <label htmlFor="newTag1">City:</label>
+        <label htmlFor="newCity">City:</label>
         <input
           type="text"
           maxLength="30"
@@ -53,7 +56,7 @@ export default function CreateActivities({ onHandleSubmit }) {
           placeholder="e.g. New York ..."
           required
         />
-        <label htmlFor="newTag1">Date:</label>
+        <label htmlFor="newDate">Date:</label>
         <input
           type="date"
           value={today}
@@ -62,17 +65,19 @@ export default function CreateActivities({ onHandleSubmit }) {
           name="newDate"
           required
         />
-        <label htmlFor="newTag1">Time:</label>
+        <label htmlFor="newTime">Time:</label>
         <input type="time" id="newTime" name="newTime" required />
 
         <AddButton type="submit">Add Activity</AddButton>
       </CreateForm>
-    </Background>
+    </StyledBackground>
   );
 }
 
-const Background = styled.div`
+const StyledBackground = styled.div`
   background-color: #1d4ed8;
+  width: 100%;
+  height: 100%;
 `;
 
 const Subheader = styled.h2`
@@ -85,7 +90,6 @@ const CreateForm = styled.form`
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
 `;
 
 const AddButton = styled.button`

@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const links = [
   { name: "home", path: "/" },
   { name: "activities", path: "/activities" },
-  { name: "add activity", path: "/createActivities" },
+  { name: "+", path: "/createActivities" },
 ];
 
 function Navbar() {
@@ -27,6 +27,7 @@ const NavbarList = styled.ul`
   background: #3b4a5c;
   justify-content: space-around;
   border-top: solid 0.5px white;
+  z-index: 100;
   a {
     text-decoration: none;
   }
@@ -42,9 +43,10 @@ const NavbarList = styled.ul`
     &:hover,
     &:focus {
       color: palevioletred;
+      text-shadow: 3px 3px 20px #ff99cc, -2px 1px 30px #ff99cc;
     }
     &:active {
-      color: red;
+      color: #ff99cc;
     }
   }
 `;

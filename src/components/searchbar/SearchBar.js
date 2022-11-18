@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { FaSearchLocation, FaLocationArrow } from "react-icons/fa";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function SearchBar({ setQuery }) {
@@ -55,12 +55,15 @@ const Search = styled.input`
 const SearchButton = styled(FaSearchLocation)`
   color: white;
   cursor: pointer;
+  margin-bottom: -0.4rem;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 `;
 
 const LocationButton = styled(FaLocationArrow)`
   color: white;
   cursor: pointer;
-  margin-left: 0.8rem;
+  margin: -0.4rem 0.8rem;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 `;
 
 export default SearchBar;
