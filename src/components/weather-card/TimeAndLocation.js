@@ -21,12 +21,12 @@ const TimeAndDatePosition = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1.5rem auto;
+  margin: 1rem auto;
 `;
 
 const DateAndTime = styled.p`
   color: white;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   line-height: 1.75rem;
   font-weight: 200;
 `;

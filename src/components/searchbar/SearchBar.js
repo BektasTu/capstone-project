@@ -31,7 +31,10 @@ function SearchBar({ setQuery }) {
         value={city}
         onChange={(e) => setCity(e.currentTarget.value)}
         type="text"
+        maxlength="30"
         placeholder="search for a city..."
+        pattern=".*[^\s]{1,}.*"
+        required
       />
       <SearchButton size={25} onClick={handleSearchClick} />
       <LocationButton size={25} onClick={handleLocationClick} />
@@ -40,7 +43,7 @@ function SearchBar({ setQuery }) {
 }
 
 const Search = styled.input`
-  margin: 1.5rem;
+  margin: 1rem;
   font-size: 0.8rem;
   line-height: 1.3rem;
   border-radius: 5px;
