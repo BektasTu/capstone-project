@@ -9,7 +9,7 @@ const dataItems = [
   },
   {
     id: 2,
-    title: "Moscow",
+    title: "Istanbul",
   },
 ];
 
