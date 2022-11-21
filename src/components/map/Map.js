@@ -26,7 +26,7 @@ function Map() {
         scrollWheelZoom={false}
         style={{
           width: "23rem",
-          height: "11rem",
+          height: "13rem",
           borderRadius: "10px",
           border: "solid 1px black",
           boxShadow: "0 0 10px black",

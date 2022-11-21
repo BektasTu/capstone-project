@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import Card from "../components/card/Card.js";
+import HeaderActivities from "../components/header/HeaderActivities.js";
 
 function Activities({ cards, onDelete, onToggle }) {
   return (
     <>
       <StyledBackground>
-        <StyledHeader>Your Activities</StyledHeader>
+        <HeaderActivities />
         <CardContainer>
           {cards.map((card) => {
             return (
@@ -29,11 +30,6 @@ const StyledBackground = styled.div`
   width: 100%;
   height: 100%;
   background-color: #1d4ed8;
-`;
-
-const StyledHeader = styled.h1`
-  display: flex;
-  justify-content: center;
 `;
 
 const CardContainer = styled.div`
