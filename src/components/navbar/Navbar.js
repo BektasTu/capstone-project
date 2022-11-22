@@ -28,6 +28,8 @@ const NavbarList = styled.ul`
   justify-content: space-around;
   border-top: solid 0.5px white;
   z-index: 100;
+  overflow: auto;
+
   a {
     text-decoration: none;
   }
@@ -43,6 +45,7 @@ const NavbarList = styled.ul`
     &:hover,
     &:focus {
       color: palevioletred;
+      opacity: 0.8;
       text-shadow: 3px 3px 20px #ff99cc, -2px 1px 30px #ff99cc;
     }
     &:active {

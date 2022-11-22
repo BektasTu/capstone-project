@@ -31,13 +31,23 @@ function App() {
     setCards(cardArray.filter((card) => card.id !== cardId));
   }
 
+  function editCard(card) {
+    setCards(cardArray.map((e) => (e.id === card.id ? card : e)));
+  }
+
   return (
     <Container>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
           path="/activities"
-          element={<Activities cards={cardArray} onDelete={deleteCard} />}
+          element={
+            <Activities
+              cards={cardArray}
+              onDelete={deleteCard}
+              onEdit={editCard}
+            />
+          }
         />
         <Route
           path="/createActivities"
