@@ -9,7 +9,7 @@ import { nanoid } from "nanoid";
 import { useEffect, useState } from "react";
 import { setLocalStorage, loadLocalStorage } from "./hook/localStorage";
 
-const cards = [{}];
+const cards = [];
 
 function App() {
   const [cardArray, setCards] = useState(
