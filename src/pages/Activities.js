@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Card from "../components/card/Card.js";
 import HeaderActivities from "../components/header/HeaderActivities.js";
 
-function Activities({ cards, onDelete, onToggle, onEdit }) {
+function Activities({ cards, onDelete, onToggle }) {
   return (
     <>
       <StyledBackground>
