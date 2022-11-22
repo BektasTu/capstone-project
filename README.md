@@ -1,6 +1,6 @@
 # Weather Planer
 
-> [This is my capstone project](https://capstone-project-zeta-lovat.vercel.app/)
+[This is my capstone project](https://capstone-project-zeta-lovat.vercel.app/)
 
 ## `Description`
 
