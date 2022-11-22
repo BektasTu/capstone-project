@@ -3,9 +3,8 @@ import { BsTrashFill } from "react-icons/bs";
 import { FiEdit } from "react-icons/fi";
 import { useState } from "react";
 
-export default function Card({ id, tags, onDelete, onEdit }) {
+export default function Card({ id, tags, onDelete }) {
   const [card, setCard] = useState(tags);
-  console.log(tags);
   const [isEditable, setIsEditable] = useState(false);
   return (
     <CardArticle>

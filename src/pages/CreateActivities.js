@@ -5,6 +5,7 @@ export default function CreateActivities({ onHandleSubmit }) {
   const navigate = useNavigate();
 
   //This is a function to get the actual date
+
   var today = new Date();
   var dd = today.getDate();
   var mm = today.getMonth() + 1;
@@ -15,7 +16,6 @@ export default function CreateActivities({ onHandleSubmit }) {
   if (mm < 10) {
     mm = "0" + mm;
   }
-
   today = yyyy + "-" + mm + "-" + dd;
 
   function handleSubmit(event) {
