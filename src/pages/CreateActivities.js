@@ -57,14 +57,7 @@ export default function CreateActivities({ onHandleSubmit }) {
           required
         />
         <label htmlFor="newDate">Date:</label>
-        <input
-          type="date"
-          value={today}
-          min={today}
-          id="newDate"
-          name="newDate"
-          required
-        />
+        <input type="date" min={today} id="newDate" name="newDate" required />
         <label htmlFor="newTime">Time:</label>
         <input type="time" id="newTime" name="newTime" required />
 
