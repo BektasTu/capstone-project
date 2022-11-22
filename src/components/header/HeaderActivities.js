@@ -8,6 +8,7 @@ function HeaderActivities() {
 const StyledHeader = styled.header`
   display: flex;
   justify-content: center;
+  font-size: 2rem;
 `;
 
 export default HeaderActivities;

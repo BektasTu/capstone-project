@@ -18,7 +18,7 @@ export default function CreateActivities({ onHandleSubmit }) {
 
   today = yyyy + "-" + mm + "-" + dd;
 
-  function onSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
     const form = event.target;
     const { newActivity, newCity, newDate, newTime } = form.elements;
@@ -34,7 +34,7 @@ export default function CreateActivities({ onHandleSubmit }) {
 
   return (
     <StyledBackground>
-      <CreateForm onSubmit={onSubmit}>
+      <CreateForm onSubmit={handleSubmit}>
         <Subheader>New activity</Subheader>
         <label htmlFor="newActivity">Activity:</label>
         <textarea
@@ -75,14 +75,13 @@ export default function CreateActivities({ onHandleSubmit }) {
 }
 
 const StyledBackground = styled.div`
-  background-color: #1d4ed8;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
 `;
 
 const Subheader = styled.h2`
   text-align: center;
-  text-shadow: 0 2px 25px 10px #d946ef;
+  font-size: 2rem;
 `;
 
 const CreateForm = styled.form`
@@ -96,7 +95,7 @@ const AddButton = styled.button`
   display: inline-block;
   font-size: 1em;
   padding: 1em 2em;
-  margin-top: 100px;
+  margin-top: 90px;
   margin-bottom: 60px;
   -webkit-appearance: none;
   appearance: none;

@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import icon from "leaflet/dist/images/marker-icon.png";
+import iconShadow from "leaflet/dist/images/marker-shadow.png";
+import L from "leaflet";
+
+let DefaultIcon = L.icon({
+  iconUrl: icon,
+  shadowUrl: iconShadow,
+});
+
+L.Marker.prototype.options.icon = DefaultIcon;
 
 function Map() {
   function LocationMarker() {
@@ -15,14 +25,16 @@ function Map() {
       },
     });
 
-    return position === null ? null : <Marker position={position} />;
+    return position === null ? null : (
+      <Marker position={position} icon={DefaultIcon} />
+    );
   }
 
   return (
     <>
       <MapContainer
         center={{ lat: 50.935, lng: 6.95 }}
-        zoom={5}
+        zoom={6}
         scrollWheelZoom={false}
         style={{
           width: "23rem",

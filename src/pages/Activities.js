@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Card from "../components/card/Card.js";
 import HeaderActivities from "../components/header/HeaderActivities.js";
 
-function Activities({ cards, onDelete, onToggle }) {
+function Activities({ cards, onDelete, onToggle, onEdit }) {
   return (
     <>
       <StyledBackground>
@@ -16,6 +16,7 @@ function Activities({ cards, onDelete, onToggle }) {
                 activity={card.activity}
                 tags={card.tags}
                 onDelete={onDelete}
+                onEdit={onEdit}
                 onToggle={onToggle}
               />
             );
@@ -27,9 +28,8 @@ function Activities({ cards, onDelete, onToggle }) {
 }
 
 const StyledBackground = styled.div`
-  width: 100%;
-  height: 100%;
-  background-color: #1d4ed8;
+  width: 100vw;
+  height: 100vh;
 `;
 
 const CardContainer = styled.div`
