@@ -12,11 +12,11 @@ function Activities({ cards, onDelete, onToggle, onEdit }) {
           {cards.map((card) => {
             return (
               <Card
+                key={card.id}
                 id={card.id}
                 activity={card.activity}
                 tags={card.tags}
                 onDelete={onDelete}
-                onEdit={onEdit}
                 onToggle={onToggle}
               />
             );
